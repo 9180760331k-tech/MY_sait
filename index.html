@@ -19,7 +19,7 @@
   <header class="site-header">
     <div class="wrap nav" id="nav">
       <a class="logo" href="#top">vibe<span>.</span>coder</a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню" aria-expanded="false">
         <span></span><span></span>
       </button>
       <ul class="nav-links">
@@ -377,7 +377,10 @@
       toggle.setAttribute("aria-expanded", open);
     });
     nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => nav.classList.remove("is-open"));
+      link.addEventListener("click", () => {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
     });
   </script>
 </body>
